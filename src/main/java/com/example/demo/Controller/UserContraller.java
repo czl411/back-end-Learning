@@ -17,10 +17,10 @@ public class UserContraller {
         return "get user by ID";
     }
 
-    @PostMapping("/user")
-    public String save(User user){
-        return "添加用户";
-    }
+//    @PostMapping("/user")
+//    public String save(User user){
+//        return "添加用户";
+//    }
 
     @PutMapping("/user")
     public String update(User user){
