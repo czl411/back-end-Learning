@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("t_order")
@@ -8,6 +9,7 @@ public class Order {
     private int id;
     private int uid;
     private String ordertime;
+    @TableField(exist = false)
     private User user;
 
     public int getId() {

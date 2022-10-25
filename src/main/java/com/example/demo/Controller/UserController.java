@@ -1,5 +1,7 @@
 package com.example.demo.Controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,7 @@ public class UserController {
 
     @GetMapping("/user/findAll")
     public List<User> query(){
-        System.out.println(userMapper.selectAllUserAndOrders());
         return userMapper.selectAllUserAndOrders();
-
     }
 
     @PostMapping("/user")
@@ -32,5 +32,11 @@ public class UserController {
         return "failed";
     }
 
+    @GetMapping("/user/findByPage")
+    public IPage findByPage(){
+        Page<User> page = new Page<>(0,2);
+        IPage iPage = userMapper.selectPage(page,null);
+        return iPage;
+    }
 
 }

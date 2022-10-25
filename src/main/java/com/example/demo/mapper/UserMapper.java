@@ -27,4 +27,7 @@ public interface UserMapper extends BaseMapper<User> {
             }
     )
     List<User> selectAllUserAndOrders();
+
+    @Select("select * from user where id =#{id}")
+    User selectById(int id);
 }
