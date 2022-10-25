@@ -1,5 +1,10 @@
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+import java.util.List;
+@TableName("user")
 public class User {
     private int id;
 
@@ -15,6 +20,16 @@ public class User {
     private String password;
     private String birthday;
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    @TableField(exist = false)
+    private List<Order> orders;
     public String getBirthday() {
         return birthday;
     }
@@ -26,6 +41,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday='" + birthday + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 

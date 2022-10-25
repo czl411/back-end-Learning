@@ -16,11 +16,11 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
-    @GetMapping("/user")
+    @GetMapping("/user/findAll")
     public List<User> query(){
-        List<User> list = userMapper.selectList(null);
-//        System.out.println(list);
-        return list;
+        System.out.println(userMapper.selectAllUserAndOrders());
+        return userMapper.selectAllUserAndOrders();
+
     }
 
     @PostMapping("/user")
